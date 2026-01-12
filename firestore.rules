@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Invoices Collection:
+    // Only allow authenticated users to read and write.
+    // Since this is a private, single-admin app, detailed role checks aren't needed yet.
+    match /invoices/{invoice} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Default deny for everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

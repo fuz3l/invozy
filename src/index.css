@@ -1,0 +1,66 @@
+:root {
+  --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #2563eb;
+  /* Royal Blue */
+  --secondary-color: #1e293b;
+  /* Slate 800 */
+  --accent-color: #3b82f6;
+  --background-color: #f8fafc;
+  /* Slate 50 */
+  --surface-color: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: white;
+  }
+}
+
+/* Helpers */
+.hidden-on-screen {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  visibility: hidden;
+}
+
+@media print {
+  .hidden-on-screen {
+    position: static;
+    visibility: visible;
+  }
+}
