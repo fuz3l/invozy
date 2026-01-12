@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LayoutDashboard, PlusCircle, FileText, LogOut, Glasses } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, FileText, LogOut, Glasses, Menu, X } from 'lucide-react';
 
 export default function MainLayout() {
     const { logout } = useAuth();
     const navigate = useNavigate();
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     async function handleLogout() {
         try {
@@ -24,23 +25,35 @@ export default function MainLayout() {
 
     return (
         <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f8fafc' }}>
+
+            {/* Mobile Overlay */}
+            {isSidebarOpen && (
+                <div
+                    className="sidebar-overlay show-on-mobile"
+                    onClick={() => setSidebarOpen(false)}
+                />
+            )}
+
             {/* Sidebar */}
-            <aside style={{
-                width: '250px',
-                backgroundColor: '#1e293b',
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: '4px 0 6px -1px rgb(0 0 0 / 0.1)'
-            }}>
-                <div style={{ padding: '1.5rem', borderBottom: '1px solid #334155', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ backgroundColor: '#3b82f6', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
-                        <Glasses size={24} color="white" />
+            <aside className={`app-sidebar ${isSidebarOpen ? 'open' : ''}`}>
+                <div style={{ padding: '1.5rem', borderBottom: '1px solid #334155', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <div style={{ backgroundColor: '#3b82f6', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
+                            <Glasses size={24} color="white" />
+                        </div>
+                        <div>
+                            <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Invozy</h1>
+                            <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Optical Shop</p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Invozy</h1>
-                        <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Optical Shop</p>
-                    </div>
+                    {/* Close Button (Mobile Only) */}
+                    <button
+                        className="show-on-mobile"
+                        onClick={() => setSidebarOpen(false)}
+                        style={{ background: 'transparent', color: 'white' }}
+                    >
+                        <X size={24} />
+                    </button>
                 </div>
 
                 <nav style={{ padding: '1.5rem 1rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -48,6 +61,7 @@ export default function MainLayout() {
                         <NavLink
                             key={item.path}
                             to={item.path}
+                            onClick={() => setSidebarOpen(false)}
                             style={({ isActive }) => ({
                                 display: 'flex',
                                 alignItems: 'center',
@@ -91,18 +105,29 @@ export default function MainLayout() {
             </aside>
 
             {/* Main Content */}
-            <main style={{ flex: 1, overflowY: 'auto' }}>
+            <main style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
                 <header style={{
                     backgroundColor: 'white',
                     padding: '1rem 2rem',
                     borderBottom: '1px solid #e2e8f0',
                     display: 'flex',
-                    justifyContent: 'end',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
                 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        {/* Hamburger Button (Mobile Only) */}
+                        <button
+                            className="show-on-mobile"
+                            onClick={() => setSidebarOpen(true)}
+                            style={{ background: 'transparent', color: '#1e293b' }}
+                        >
+                            <Menu size={24} />
+                        </button>
+                    </div>
+
                     <span style={{ fontSize: '0.875rem', color: '#64748b' }}>Admin Portal</span>
                 </header>
-                <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+                <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
                     <Outlet />
                 </div>
             </main>

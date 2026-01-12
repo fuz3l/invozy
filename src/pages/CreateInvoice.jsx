@@ -138,7 +138,7 @@ export default function CreateInvoice() {
     return (
         <div style={{ paddingBottom: '4rem' }}>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                 <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#1e293b' }}>New Invoice</h1>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                     <select
@@ -186,14 +186,14 @@ export default function CreateInvoice() {
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+            <div className="invoice-grid">
                 {/* Left Column: Form */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
                     {/* Customer Details */}
                     <section style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)' }}>
                         <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: '#334155' }}>Customer Details</h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div className="form-grid">
                             <div>
                                 <label style={labelStyle}>Full Name</label>
                                 <input
