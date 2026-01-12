@@ -6,9 +6,9 @@ const TraditionalTemplate = forwardRef(({ invoice, customer, items, totals }, re
 
             {/* Header */}
             <div style={{ textAlign: 'center', marginBottom: '30px', borderBottom: '2px solid black', paddingBottom: '20px' }}>
-                <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: 0, textTransform: 'uppercase' }}>Optical Shop Name</h1>
+                <h1 style={{ fontSize: '28px', fontWeight: 'bold', margin: 0, textTransform: 'uppercase' }}>Galaxy Eyewear</h1>
                 <p style={{ margin: '5px 0 0', fontStyle: 'italic' }}>Premium Eyewear & Lens Specialists</p>
-                <p style={{ margin: '5px 0', fontSize: '14px' }}>123 Main Street, City • Ph: +91 0000000000</p>
+                <p style={{ margin: '5px 0', fontSize: '14px' }}>Opp. Noor stationary,Fatehwadi Tower, Juhapura, Ahmedabad, Gujarat 380055</p>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>

@@ -10,9 +10,9 @@ const ModernTemplate = forwardRef(({ invoice, customer, items, totals }, ref) =>
                     <p style={{ color: '#64748b', marginTop: '5px' }}>#{invoice.invoiceNumber}</p>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                    <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0 }}>Optical Shop Name</h2>
-                    <p style={{ margin: '5px 0 0', color: '#64748b' }}>123 Main Street, City</p>
-                    <p style={{ margin: '0', color: '#64748b' }}>Phone: +91 0000000000</p>
+                    <h2 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0 }}>Galaxy Eyewear</h2>
+                    <p style={{ margin: '5px 0 0', color: '#64748b' }}>Opp. Noor stationary,Fatehwadi Tower, Juhapura, Ahmedabad, Gujarat 380055</p>
+                    <p style={{ margin: '0', color: '#64748b' }}>Phone: +91 8735871937</p>
                 </div>
             </div>
 
