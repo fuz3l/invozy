@@ -60,10 +60,10 @@ export default function InvoicePDF({ invoice, customer, items, totals }) {
                         <Text style={{ marginTop: 8, color: '#64748b' }}>#{invoice.invoiceNumber}</Text>
                     </View>
                     <View style={styles.companyDetails}>
-                        <Text style={{ fontSize: 14, fontWeight: 600, color: '#1e293b', marginBottom: 4 }}>Optical Shop Name</Text>
-                        <Text>123 Main Street</Text>
-                        <Text>City, State, 000000</Text>
-                        <Text>+91 98765 43210</Text>
+                        <Text style={{ fontSize: 14, fontWeight: 600, color: '#1e293b', marginBottom: 4 }}>Galaxy Eyewear</Text>
+                        <Text>Opp. Noor stationary,Fatehwadi Tower, Juhapura</Text>
+                        <Text>Ahmedabad, Gujarat 380055</Text>
+                        <Text>Phone: +91 8735871937</Text>
                     </View>
                 </View>
 
